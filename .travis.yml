@@ -3,7 +3,7 @@ services:
 - docker
 env:
   global:
-  - VERSION="1.5.2"
+  - VERSION="1.6.0"
   - PY27="cp27-cp27mu"
   - PY35="cp35-cp35m"
   - PY36="cp36-cp36m"
