@@ -19,10 +19,10 @@ before_install:
   make &&
   make install&& 
   cd ../ &&
-  /opt/python/${PY27}/bin/pip install --upgrade auditwheel
-  /opt/python/${PY35}/bin/pip install --upgrade auditwheel
-  /opt/python/${PY36}/bin/pip install --upgrade auditwheel
-  /opt/python/${PY37}/bin/pip install --upgrade auditwheel
+  /opt/python/${PY27}/bin/pip install --upgrade auditwheel &&
+  /opt/python/${PY35}/bin/pip install --upgrade auditwheel &&
+  /opt/python/${PY36}/bin/pip install --upgrade auditwheel &&
+  /opt/python/${PY37}/bin/pip install --upgrade auditwheel &&
   git clone -b ${VERSION} git://github.com/lericson/pylibmc/ && cd pylibmc &&
   /opt/python/${PY27}/bin/pip wheel . -w /wheelhouse &&
   auditwheel repair /wheelhouse/pylibmc-${VERSION}-${PY27}-linux_x86_64.whl -w /wheelhouse &&
