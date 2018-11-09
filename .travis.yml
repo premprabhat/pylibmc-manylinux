@@ -29,7 +29,7 @@ before_install:
   /opt/python/${PY35}/bin/pip wheel . -w /wheelhouse &&
   auditwheel repair /wheelhouse/pylibmc-${VERSION}-${PY35}-linux_x86_64.whl -w /wheelhouse &&
   /opt/python/${PY36}/bin/pip wheel . -w /wheelhouse &&
-  auditwheel repair /wheelhouse/pylibmc-${VERSION}-${PY36}-linux_x86_64.whl -w /wheelhouse" &&
+  auditwheel repair /wheelhouse/pylibmc-${VERSION}-${PY36}-linux_x86_64.whl -w /wheelhouse &&
   /opt/python/${PY37}/bin/pip wheel . -w /wheelhouse &&
   auditwheel repair /wheelhouse/pylibmc-${VERSION}-${PY37}-linux_x86_64.whl -w /wheelhouse"
 - docker cp aaa:/wheelhouse/pylibmc-${VERSION}-${PY27}-manylinux1_x86_64.whl ./
