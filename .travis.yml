@@ -49,5 +49,7 @@ deploy:
     - "pylibmc-${VERSION}-${PY37}-manylinux1_x86_64.whl"
   skip_cleanup: true
   overwrite: true
+  all_branches: true
   on:
     repo: lericson/pylibmc-manylinux
+    tags: true
