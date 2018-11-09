@@ -41,7 +41,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: "hb9/8JHZfMtUD/XYDkaP158HPhQ0ve12rnE6fEeFjeD6r4fQ4IMUvtSyx+8LLYmG4pP1fZRkmPQKmGGSaIt+eVMLwW1gFdvHN9pCmQeEg5gEh2IPOniK+LIHygR8GASA7SyvhtxH+uLuV2hQiCtsvbzHxIEAPokBYADFxsEgh88="
+    secure: F41kCK6rZ65C76RD7ErVeircSfjPAS7ilsY++dM2o1Ttr0x6P2h1T0nDnd24MvSmjuGB/ZO30j3vmtTTZE2yw1z2M9eDWRt8PCisERWLs3WLX0iSnc+j3gsEONGJ9zvbrkyByW9bB6BBWfwStxo2cKyKEZOsCjLO0vdHa7zw8oOStmVxcZ4a3IEhKE2/VR8EaNNDOKV/2xlaU4jmiVRlzzApVzHMcZ1SbgAnGlzAJfX5wDvxs2l18mEyi+iUoFEDIzJiBkfflgneXm3t+ZSixWlGGWHRY72j9l7bBnPxpvppRKhJ/eefKlvQilxprRMilsLQYklfccXs41cVMFQlHp+IDBug2XiStLiNTsGNglaMDw/uRSYga5gPy2KB5AHozi+r8O3GGQes/CmUgcoqc0nlPaT9tw15w1jHxTb7+eeWDDhjiBe5f3kSjTXrPQTwFVf9r2qEd8G37TE29bZr9vwFzoZjGhFaIlAAhOdAfgTJ0pRCeZwv84ulpk3VwgXQdumCfxby7jC0gBYahoL7kdKzKCCVFGg0yTyUeEjWoJt/KWJoQLZYMWbulmo0JvLhA/dTj5S7a0BRCVETVmjJiabs1bOskDr7mraUQAgpEQpWBdxle1jookQUXaObtlUhW0N5PDn/Op0W95qYysY0fJx/xPm+ZknDEspmO93ZvHs=
   file:
     - "pylibmc-${VERSION}-${PY27}-manylinux1_x86_64.whl"
     - "pylibmc-${VERSION}-${PY35}-manylinux1_x86_64.whl"
