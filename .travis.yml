@@ -41,7 +41,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: uPd6QTlepV/A3e7Z2B2UQaXZNnqmSlYWVr50LBS81tTZeMEC29ItmvXfWKnh/W3WfQa6p2GwLWhZdC3DUWCACzyuLeO6KeQVpoAVZTCLwKw5pz97NMnCBEXw/vKjOHGobsYz3nw2EyXmQ3NMEigcBLJqrFi0bsb6Vgp1KZV8kDnyZTCW+73AdDyMJClUeTVYB/F0VJDDeN9ycNY805GoUWaHh3YTq1w/2cSUH5TH/MsNQPBGnbvPDxPOUhas2Q7I2vfztSQ1VfPp02qCckbtaaGf8z6wyYQRFZfIlCtDR/+RJFghXC/ZGRZqfwsw3kOijcZ3o2hTFJF8ZtT0MrbsZLtuw5T/2LWcR2Pw8u9VA7UMncgyZIlFotIR+0ffz6AD2D35gEnE0u4zruCgUmAn+UY/Q/IA5NEgCBU/hsnN9gzhV08xq+cNV2dNmgs+tWuk+ZbFnoOEWJBnEGz96ZNxvCL5uDo64D2WJcHRDCIW6X807LpUOAgOqSiJAZ2EZpRVhlpMbBQt2wemXrqJOIC5mwVC2BpiCUqG1IuIUkfUzFKFkdbQRgs0a8TMpbrvlgHtPoWIU8mUsdGG0LaVlHfyyTlbM24V6jpXnjDce9HcZC3FZD7r1qEezKn7tzEiCE6pZjojPU/+i9Kmm2a05Op5PmARL0c+Ph33r+0wx/9bdmI=
+    secure: "hb9/8JHZfMtUD/XYDkaP158HPhQ0ve12rnE6fEeFjeD6r4fQ4IMUvtSyx+8LLYmG4pP1fZRkmPQKmGGSaIt+eVMLwW1gFdvHN9pCmQeEg5gEh2IPOniK+LIHygR8GASA7SyvhtxH+uLuV2hQiCtsvbzHxIEAPokBYADFxsEgh88="
   file:
     - "pylibmc-${VERSION}-${PY27}-manylinux1_x86_64.whl"
     - "pylibmc-${VERSION}-${PY35}-manylinux1_x86_64.whl"
@@ -50,5 +50,4 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    tags: true
-    repo: bxm156/pylibmc-manylinux
+    repo: lericson/pylibmc-manylinux
