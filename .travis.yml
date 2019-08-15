@@ -4,22 +4,25 @@ services:
 env:
   global:
   - VERSION="1.6.1"
-  - LIBMEMCACHED_VERSION="1.0.19"
+  - LIBMEMCACHED_VERSION="1.0.18"
   - PY27="cp27-cp27mu"
   - PY35="cp35-cp35m"
   - PY36="cp36-cp36m"
   - PY37="cp37-cp37m"
 before_install:
 - docker pull quay.io/pypa/manylinux1_x86_64
-- docker run --name "aaa" quay.io/pypa/manylinux1_x86_64 /bin/sh -c "cd && yum update -y && mkdir /wheelhouse &&
-  yum install cyrus-sasl-devel zlib-devel curl libtool automake flex bison -y &&
-  curl -L -o libmemcached-${LIBMEMCACHED_VERSION}.tar.gz https://github.com/memcachier/libmemcached/archive/${LIBMEMCACHED_VERSION}.tar.gz &&
+- docker run --name "aaa" quay.io/pypa/manylinux1_x86_64 /bin/sh -c "set -x && [ "x$LIBMEMCACHED_VERSION" != x ] && cd && yum update -y && mkdir -p /wheelhouse &&
+  yum install cyrus-sasl-devel zlib-devel curl -y &&
+  curl -L -o libmemcached-hotfixes.tar.gz https://github.com/memcachier/libmemcached/archive/1.0.19.tar.gz &&
+  tar -xvf libmemcached-hotfixes.tar.gz && 
+  mv libmemcached-1.0.19 libmemcached-hotfixes &&
+  curl -L -o libmemcached-${LIBMEMCACHED_VERSION}.tar.gz https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-${LIBMEMCACHED_VERSION}.tar.gz &&
   tar -xvf libmemcached-${LIBMEMCACHED_VERSION}.tar.gz &&
+  cp libmemcached-hotfixes/libmemcached/sasl.cc libmemcached-1.0.18/libmemcached/sasl.cc &&
   cd libmemcached-${LIBMEMCACHED_VERSION} &&
-  ./bootstrap.sh autoreconf &&
   ./configure --enable-sasl &&
   make &&
-  make install&& 
+  make install &&
   cd ../ &&
   /opt/python/${PY27}/bin/pip install --upgrade auditwheel &&
   /opt/python/${PY35}/bin/pip install --upgrade auditwheel &&
