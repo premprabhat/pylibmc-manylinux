@@ -12,11 +12,12 @@ env:
 before_install:
 - docker pull quay.io/pypa/manylinux1_x86_64
 - docker run --name "aaa" quay.io/pypa/manylinux1_x86_64 /bin/sh -c "cd && yum update -y && mkdir /wheelhouse &&
-  yum install cyrus-sasl-devel zlib-devel curl -y &&
+  yum install cyrus-sasl-devel zlib-devel curl libtool automake flex bison -y &&
   curl -L -o libmemcached-${LIBMEMCACHED_VERSION}.tar.gz https://github.com/memcachier/libmemcached/archive/${LIBMEMCACHED_VERSION}.tar.gz &&
   tar -xvf libmemcached-${LIBMEMCACHED_VERSION}.tar.gz &&
   cd libmemcached-${LIBMEMCACHED_VERSION} &&
-  ./configure &&
+  ./bootstrap.sh autoreconf &&
+  ./configure --enable-sasl &&
   make &&
   make install&& 
   cd ../ &&
