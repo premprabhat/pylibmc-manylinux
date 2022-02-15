@@ -20,7 +20,9 @@ jobs:
             arch: arm64
     steps:
       - uses: actions/checkout@v2
-      
+        with:
+          submodules: recursive
+
       - uses: actions/setup-python@v2
         with:
           python-version: 3.7
