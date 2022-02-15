@@ -21,11 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: add submodule
-        run: |
-          git submodule add https://github.com/lericson/pylibmc
-          git submodule init
-          git submodule update
+      #- name: add submodule
+      #  run: |
+      #    git submodule add https://github.com/lericson/pylibmc
+      #    git submodule init
+      #    git submodule update
+      - name: add git repo
+        run: git clone https://github.com/lericson/pylibmc && cd pylibmc
 
       - uses: actions/setup-python@v2
         with:
