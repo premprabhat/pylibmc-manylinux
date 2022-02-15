@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        arch: [x86_64]
+        include:
+          - os: ubuntu-latest
+            arch: aarch64
+          - os: macos-latest
+            arch: arm64
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Set up QEMU
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: docker/setup-qemu-action@v1
+
+      - name: Build wheels
+        env:
+          CIBW_SKIP: '*-musllinux*'
+          CIBW_ARCHS: ${{matrix.arch}}
+        run: |
+          pip install cibuildwheel
+          cibuildwheel --output-dir dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: ${{ secrets.PYPI_USERNAME }}
+          password: ${{ secrets.PYPI_PASSWORD }}
