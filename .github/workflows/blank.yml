@@ -20,8 +20,12 @@ jobs:
             arch: arm64
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: recursive
+
+      - name: add submodule
+        run: |
+          git submodule add https://github.com/lericson/pylibmc
+          git submodule init
+          git submodule update
 
       - uses: actions/setup-python@v2
         with:
