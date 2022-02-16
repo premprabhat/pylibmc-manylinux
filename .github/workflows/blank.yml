@@ -35,6 +35,7 @@ jobs:
           CIBW_BEFORE_BUILD_LINUX: "yum install -y libmemcached-devel"
           CIBW_BEFORE_BUILD_MACOS: "brew install libmemcached"
         run: |
+          cd pylibmc
           cibuildwheel --output-dir wheelhouse
 
       - uses: actions/upload-artifact@v2
@@ -55,6 +56,7 @@ jobs:
 
       - name: Build sdist
         run: |
+          cd pylibmc
           python setup.py sdist
 
       - uses: actions/upload-artifact@v2
