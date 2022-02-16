@@ -42,6 +42,7 @@ jobs:
           CIBW_SKIP: '*-musllinux*'
           CIBW_ARCHS: ${{matrix.arch}}
         run: |
+          ls
           pip install cibuildwheel
           cibuildwheel --output-dir dist
 
