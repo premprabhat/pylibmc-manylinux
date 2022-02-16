@@ -1,0 +1,3 @@
+[submodule "pylibmc"]
+	path = pylibmc
+	url = https://github.com/lericson/pylibmc
