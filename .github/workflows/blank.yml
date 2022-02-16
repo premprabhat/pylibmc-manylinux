@@ -43,6 +43,7 @@ jobs:
           CIBW_ARCHS: ${{matrix.arch}}
         run: |
           ls
+          cd pylibmc
           pip install cibuildwheel
           cibuildwheel --output-dir dist
 
